@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+        #SonarQube
       - name: Tests
         run: |-         
          mvn sonar:sonar  -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}  -Dsonar.host.url=${{ env.SONAR_HOST_URL }}  -Dsonar.login=${{ env.SONAR_TOKEN }}
