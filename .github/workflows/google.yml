@@ -17,7 +17,7 @@ env:
   REPOSITORY: usuario-repo
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-  SONAR_PROJECT_KEY: userdemo-git-pg
+  SONAR_PROJECT_KEY: userdemo-git-pg  
 
 # Trabajos que se ejecutan en el flujo de trabajo
 jobs:
@@ -50,16 +50,8 @@ jobs:
     #outputs:
     #  output1: ${{ steps.step1.outputs.test }}
     steps:
-      - name: Validar Repositorio
-        id: repositorio        
-        run: echo ::set-output name=repositorio::gcloud artifacts repositories list --location=europe-southwest1|grep ${{ env.REPOSITORY }}
-        
-      - name: Comprobar Repositorio
-        id: validacion        
-        run: |-
-         echo "${{ steps.repositorio.outputs.repositorio }}"
-         
       - name: Create Repository
+        continue-on-error: true
         run: |-
          gcloud artifacts repositories create ${{ env.REPOSITORY }} --repository-format=docker --location=${{ env.REGION }} --description="Repositorio servicio"
           
