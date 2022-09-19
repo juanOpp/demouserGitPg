@@ -12,9 +12,9 @@ on:
 env:
   PROJECT_ID: openmarket-demo # TODO: update Google Cloud project id
   GAR_LOCATION: europe-southwest1
-  SERVICE: srv-usuario
+  SERVICE: srv-usuario-pg
   REGION: europe-southwest1 
-  REPOSITORY: usuario-repo
+  REPOSITORY: usuario-repo-pg
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
   SONAR_PROJECT_KEY: userdemo-git-pg  
@@ -56,7 +56,7 @@ jobs:
        - name: Create Repository
          continue-on-error: true
          run: |-
-          gcloud artifacts repositories create ${{ env.REPOSITORY }} --repository-format=docker --location=${{ env.REGION }} --description="Repositorio servicio"
+          gcloud artifacts repositories create ${{ env.REPOSITORY }} --repository-format=docker --location=${{ env.REGION }} --description="Repositorio servicio usuario pg"
 
       # Configurar la autenticación en los repositorios de Docker en la región      
        - name: Docker Auth
