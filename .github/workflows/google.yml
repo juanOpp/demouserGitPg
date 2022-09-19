@@ -33,16 +33,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Mvn Build
-        run: |-         
-         mvn clean install -q -DskipTests -s ./m2/settings.xml
-      - name: Mvn Package
-        run: |-         
-         mvn package -ntp -q -s ./m2/settings.xml
+    
         #SonarQube
-      - name: Tests
-        run: |-         
-         mvn sonar:sonar  -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}  -Dsonar.host.url=${{ env.SONAR_HOST_URL }}  -Dsonar.login=${{ env.SONAR_TOKEN }}
+      #- name: Tests
+      # run: |-         
+      #   mvn sonar:sonar  -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}  -Dsonar.host.url=${{ env.SONAR_HOST_URL }}  -Dsonar.login=${{ env.SONAR_TOKEN }}
           
   cd:
     needs: ci
