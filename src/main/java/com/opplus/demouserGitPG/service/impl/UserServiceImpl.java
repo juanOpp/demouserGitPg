@@ -31,7 +31,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserDto> findAll() {
 		this.logger.info("Find All Users");
-		return userMapper.toDto((List<UserEntity>) this.userRepository.findAll());
+		List<UserDto> usuarios = userMapper.toDto((List<UserEntity>) this.userRepository.findAll());
+		return usuarios;
 	}
 
 	@Override

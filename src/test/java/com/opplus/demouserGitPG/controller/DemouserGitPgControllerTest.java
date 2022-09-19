@@ -23,6 +23,7 @@ import com.opplus.demouserGitPG.service.UserService;
 
 @WebMvcTest(DemouserGitPgControllerTest.class)
 public class DemouserGitPgControllerTest {
+
 	@Autowired
 	private MockMvc mockMvc;
 
@@ -37,21 +38,21 @@ public class DemouserGitPgControllerTest {
 	@Test
 	public void findAll_test() throws Exception {
 		List<UserDto> list_usuarios = getUsuarios();
-		when(userService.findAll()).thenReturn(list_usuarios);
+		List<UserDto> list_usuarios_find = userService.findAll();
+		when(list_usuarios_find).thenReturn(list_usuarios);
 
-		mockMvc.perform(get("/User/")).andExpect(status().isOk())
+		mockMvc.perform(get("/User").header("Access-Control-Request-Method", "GET")).andExpect(status().isOk())
 				.andExpect(jsonPath("$.size()").value(list_usuarios.size())).andDo(print());
 
 	}
-	
+
 	@Test
 	public void createUser_test() throws Exception {
 		UserDto user = new UserDto("Usuario", "Test", "Test");
 
-	    mockMvc.perform(post("/User/").contentType(MediaType.APPLICATION_JSON)
-	        .content(objectMapper.writeValueAsString(user)))
-	        .andExpect(status().isCreated())
-	        .andDo(print());
+		mockMvc.perform(
+				post("/User/").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(user)))
+				.andExpect(status().isCreated()).andDo(print());
 	}
 
 	private List<UserDto> getUsuarios() {

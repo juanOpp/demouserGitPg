@@ -17,7 +17,7 @@ RUN mvn clean install -q -DskipTests -s ./m2/settings.xml
 
 RUN mvn package -ntp -q -s ./m2/settings.xml
 
-RUN mvn sonar:sonar  -Dsonar.projectKey=User-Demo-Git-Pg  -Dsonar.host.url=http://34.175.69.230:9000  -Dsonar.login=09adebfc62989009774da90eba86d4af8e05e307
+#RUN mvn sonar:sonar  -Dsonar.projectKey=User-Demo-Git-Pg  -Dsonar.host.url=http://34.175.69.230:9000  -Dsonar.login=09adebfc62989009774da90eba86d4af8e05e307
 
 FROM adoptopenjdk/openjdk11:alpine-slim
 
