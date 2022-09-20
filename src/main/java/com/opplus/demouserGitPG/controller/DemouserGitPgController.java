@@ -30,7 +30,6 @@ import utilsOpp.UtilsOpp;
 
 
 @Api(tags = "DemoUser API")
-
 @RestController
 @RequestMapping("/User")
 public class DemouserGitPgController {
@@ -40,6 +39,7 @@ public class DemouserGitPgController {
 
 	@Autowired
 	private UserService userService;
+	
 
 	@PostMapping("/")
 	@ApiOperation(value = "Create User", nickname = "Create User", response = UserDto.class)
@@ -56,7 +56,7 @@ public class DemouserGitPgController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 	@PostMapping("/sum")
 	@ApiOperation(value = "Sumatorio Demo", nickname = "Sumatorio Demo", response = String.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = String.class),
@@ -74,7 +74,6 @@ public class DemouserGitPgController {
 	}
 
 
-	
 
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "Delete User", nickname = "Delete User", response = String.class)
@@ -96,7 +95,7 @@ public class DemouserGitPgController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}
 	}
-	
+	@CrossOrigin
 	@GetMapping("/")
 	@ApiOperation(value = "Find all Users", nickname = "Find all Users", response = Iterable.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = String.class),
@@ -113,7 +112,7 @@ public class DemouserGitPgController {
 		}
 
 	}
-
+	
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Find User By id", nickname = "Find User By id", response = UserDto.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = String.class),
@@ -126,7 +125,7 @@ public class DemouserGitPgController {
 		return ResponseEntity.ok(this.userService.findUserById(id));
 
 	}
-
+	
 	@PutMapping("/{id}")
 	@ApiOperation(value = "User Update", nickname = "User Update", response = UserDto.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = String.class),

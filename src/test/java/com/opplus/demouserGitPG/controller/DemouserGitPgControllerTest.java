@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opplus.demouserGitPG.dto.UserDto;
 import com.opplus.demouserGitPG.service.UserService;
 
-@WebMvcTest(DemouserGitPgControllerTest.class)
+@WebMvcTest(DemouserGitPgController.class)
 public class DemouserGitPgControllerTest {
 
 	@Autowired
@@ -41,7 +41,7 @@ public class DemouserGitPgControllerTest {
 		List<UserDto> list_usuarios_find = userService.findAll();
 		when(list_usuarios_find).thenReturn(list_usuarios);
 
-		mockMvc.perform(get("/User").header("Access-Control-Request-Method", "GET")).andExpect(status().isOk())
+		mockMvc.perform(get("/User/")).andExpect(status().isOk())
 				.andExpect(jsonPath("$.size()").value(list_usuarios.size())).andDo(print());
 
 	}
