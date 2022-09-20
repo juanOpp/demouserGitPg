@@ -27,6 +27,8 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 
 	private UserMapper userMapper = Mappers.getMapper(UserMapper.class);
+	
+	private static final String USER_NOT_FOUND="User %s not found"; 
 
 	@Override
 	public List<UserDto> findAll() {
@@ -40,7 +42,7 @@ public class UserServiceImpl implements UserService {
 		this.logger.info("Find User By Id {}", userId);
 		Optional<UserEntity> result = this.userRepository.findById(userId);
 		if (result.isEmpty())
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User %s not found", userId));
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(USER_NOT_FOUND, userId));
 		else
 			return userMapper.toDto(result.get());
 	}
@@ -61,7 +63,7 @@ public class UserServiceImpl implements UserService {
 		this.logger.info("Delete User by userId {}", userId);
 		Optional<UserEntity> userOrig = this.userRepository.findById(userId);
 		if (userOrig.isEmpty())
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User %s not found", userId));
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(USER_NOT_FOUND, userId));
 		else {
 			this.logger.info("Deleted User by userId {}", userId);
 			this.userRepository.deleteById(userId);
@@ -76,7 +78,7 @@ public class UserServiceImpl implements UserService {
 		// Recuperar el user por el id especificado
 		Optional<UserEntity> userOrig = this.userRepository.findById(userId);
 		if (userOrig.isEmpty())
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User %s not found", userId));
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(USER_NOT_FOUND, userId));
 		else {
 			UserEntity userUpd = userMapper.toEntity(user);
 			if (userUpd.getNombre() == null || userUpd.getNombre().isBlank())
