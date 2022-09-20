@@ -59,10 +59,10 @@ jobs:
         run: |-      
          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}"
       
-        #SonarQube
-      - name: Tests
-        run: |-         
-         mvn sonar:sonar  -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}  -Dsonar.host.url=${{ env.SONAR_HOST_URL }}  -Dsonar.login=${{ env.SONAR_TOKEN }}
+      #SonarQube
+      #- name: Tests
+      #  run: |-         
+      #  mvn sonar:sonar  -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}  -Dsonar.host.url=${{ env.SONAR_HOST_URL }}  -Dsonar.login=${{ env.SONAR_TOKEN }}
           
   cd:
     needs: ci
