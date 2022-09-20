@@ -22,7 +22,7 @@ RUN mvn package -ntp -q -s ./m2/settings.xml
 FROM adoptopenjdk/openjdk11:alpine-slim
 
 # Copy the jar to the production image from the builder stage.
-COPY --from=builder /app/target/demoUser*.jar /demoUser.jar
+COPY --from=builder /app/target/demouser*.jar /demoUser.jar
 
 # Run the web service on container startup.
 CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/demoUser.jar"]
