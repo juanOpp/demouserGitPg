@@ -10,10 +10,10 @@ on:
     
 # Varibles 
 env:
-  PROJECT_ID: openmarket-demo # TODO: update Google Cloud project id
+  PROJECT_ID: openmarket-364509 # TODO: update Google Cloud project id
   GAR_LOCATION: europe-southwest1
   SERVICE: srv-usuario-pg  
-  SERVICE_ACCOUNT: servicios-generales@openmarket-demo.iam.gserviceaccount.com
+  SERVICE_ACCOUNT: servicios-generales@openmarket-364509.iam.gserviceaccount.com
   REGION: europe-southwest1 
   REPOSITORY: usuario-repo-pg
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

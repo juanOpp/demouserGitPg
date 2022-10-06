@@ -7,10 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 import com.opplus.demouserGitPG.filter.CORSFilter;
 
-
-
-
-
 @Configuration
 public class WebConfig {
 

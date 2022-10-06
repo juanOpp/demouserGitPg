@@ -5,6 +5,8 @@ C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\repository
 C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\config\SwaggerConfig.java
 C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\controller\DemouserGitPgController.java
 C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\domain\UserEntity.java
+C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\filter\CORSFilter.java
+C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\config\WebConfig.java
 C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\dto\UserDto.java
 C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\mapper\EntityMapper.java
 C:\OPPLUS\WS_POC\demouserGitPG\src\main\java\com\opplus\demouserGitPG\service\UserService.java

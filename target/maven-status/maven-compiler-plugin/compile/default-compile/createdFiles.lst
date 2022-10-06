@@ -1,11 +1,13 @@
 com\opplus\demouserGitPG\service\UserService.class
 com\opplus\demouserGitPG\config\SwaggerConfig.class
 com\opplus\demouserGitPG\controller\DemouserGitPgController.class
+com\opplus\demouserGitPG\config\WebConfig.class
 com\opplus\demouserGitPG\mapper\UserMapper.class
 com\opplus\demouserGitPG\service\impl\UserServiceImpl.class
 com\opplus\demouserGitPG\dto\UserDto.class
 com\opplus\demouserGitPG\domain\UserEntity.class
 com\opplus\demouserGitPG\mapper\UserMapperImpl.class
+com\opplus\demouserGitPG\filter\CORSFilter.class
 com\opplus\demouserGitPG\repository\UserRepository.class
 com\opplus\demouserGitPG\mapper\EntityMapper.class
 com\opplus\demouserGitPG\DemouserGitPgApplication.class
